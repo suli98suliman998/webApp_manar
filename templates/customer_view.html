@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer View</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .navbar a {
+            float: right;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+    <h2>Welcome, {{ customer.username }}</h2>
+    <h3>Order Information:</h3>
+    <table>
+        <tr>
+            <th>Employee Assigned</th>
+            <th>Status</th>
+            <!-- Add more table headers for other order information if needed -->
+        </tr>
+        <tr>
+            <td>{{ employee_name }}</td>
+            <td>{{ order.status }}</td>
+            <!-- Add more table cells for other order information if needed -->
+        </tr>
+    </table>
+</body>
+</html>

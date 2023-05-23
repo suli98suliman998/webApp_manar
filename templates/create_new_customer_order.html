@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create New Customer Order</title>
+    <style>
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .logout-btn {
+            float: right;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table td, table th {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="{% url 'create_new_customer_order' %}">Create New Customer Order</a>
+        <a href="{% url 'employee_assigned_orders' %}">Update Customer Status</a>
+        <a class="logout-btn" href="{% url 'logout' %}">Logout</a>
+    </div>
+    <h2>Create New Customer Order</h2>
+    <form method="post" action="{% url 'create_new_customer_order' %}">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>Label</th>
+                <th>Input</th>
+            </tr>
+            <tr>
+                <td><label for="username">Username:</label></td>
+                <td><input type="text" name="username" id="username" required></td>
+            </tr>
+            <tr>
+                <td><label for="password">Password:</label></td>
+                <td><input type="password" name="password" id="password" required></td>
+            </tr>
+            <tr>
+                <td><label for="full_name">Full Name:</label></td>
+                <td><input type="text" name="full_name" id="full_name" required></td>
+            </tr>
+            <tr>
+                <td><label for="age">Age:</label></td>
+                <td><input type="number" name="age" id="age" required></td>
+            </tr>
+            <tr>
+                <td><label for="marital_status">Marital Status:</label></td>
+                <td><input type="text" name="marital_status" id="marital_status" required></td>
+            </tr>
+            <tr>
+                <td><label for="phone_number">Phone Number:</label></td>
+                <td><input type="text" name="phone_number" id="phone_number" required></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input type="email" name="email" id="email" required></td>
+            </tr>
+        </table>
+        <br>
+        <input type="submit" value="Create Order">
+    </form>
+</body>
+</html>

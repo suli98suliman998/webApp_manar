@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee View</title>
+    <style>
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .logout-btn {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="{% url 'create_new_customer_order' %}">Create New Customer Order</a>
+        <a href="{% url 'employee_assigned_orders' %}">Update Customer Status</a>
+        <a class="logout-btn" href="{% url 'logout' %}">Logout</a>
+    </div>
+    <h2>Welcome, {{ employee }}</h2>
+    <!-- Rest of the content -->
+</body>
+</html>
